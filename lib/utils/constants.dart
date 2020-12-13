@@ -7,6 +7,7 @@ const black = Color(0xFF1C1C1C);
 const black2 = Color(0xFF424242);
 const headerColor = Color(0xFFFD5872);
 const white = Colors.white;
+
 var headerRideStyle = GoogleFonts.roboto(
   textStyle: TextStyle(
     color: white,
@@ -54,7 +55,7 @@ var itemDateStyle = GoogleFonts.roboto(
 var itemContentStyle = GoogleFonts.roboto(
   textStyle: TextStyle(
     fontSize: 15.0,
-    color: grey2,
+    color: black,
   ),
 );
 var viewTitleStyle = GoogleFonts.roboto(
@@ -81,7 +82,7 @@ var createContent = GoogleFonts.roboto(
 );
 var shadow = [
   BoxShadow(
-    color: Colors.grey[300],
+    color: Colors.grey,
     blurRadius: 30,
     offset: Offset(0, 10),
   )

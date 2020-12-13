@@ -14,11 +14,11 @@ class DeletePopUp extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(5),
       ),
-      title: Text('Delete?'),
-      content: Text('Do you want to delete the note?'),
+      title: Text('Hapus?'),
+      content: Text('Anda yakin ingin menghapus catatan ini ?'),
       actions: [
         TextButton(
-          child: Text('Yes'),
+          child: Text('Ya'),
           onPressed: () {
             Provider.of<NoteProvider>(context, listen: false)
                 .deleteNote(selectedNote.id);
@@ -26,7 +26,7 @@ class DeletePopUp extends StatelessWidget {
           },
         ),
         TextButton(
-          child: Text('No'),
+          child: Text('Tidak'),
           onPressed: () {
             Navigator.pop(context);
           },

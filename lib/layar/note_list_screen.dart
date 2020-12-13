@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_notes/helper/note_provider.dart';
-import 'package:flutter_notes/screens/note_edit_screen.dart';
+import 'package:flutter_notes/layar/note_edit_screen.dart';
 import 'package:flutter_notes/utils/constants.dart';
 import 'package:flutter_notes/widgets/list_item.dart';
 import 'package:provider/provider.dart';
@@ -25,34 +25,37 @@ class NoteListScreen extends StatelessWidget {
               body: Consumer<NoteProvider>(
                 child: noNotesUI(context),
                 builder: (context, noteprovider, child) =>
-                    noteprovider.items.length <= 0
-                        ? child
-                        : ListView.builder(
-                            physics: BouncingScrollPhysics(),
-                            itemCount: noteprovider.items.length + 1,
-                            itemBuilder: (context, index) {
-                              if (index == 0) {
-                                return header();
-                              } else {
-                                final i = index - 1;
-                                final item = noteprovider.items[i];
+                noteprovider.items.length <= 0
+                    ? child
+                    : ListView.builder(
+                  physics: BouncingScrollPhysics(),
+                  itemCount: noteprovider.items.length + 1,
+                  itemBuilder: (context, index) {
+                    if (index == 0) {
+                      return header();
+                    } else {
+                      final i = index - 1;
+                      final item = noteprovider.items[i];
 
-                                return ListItem(
-                                  item.id,
-                                  item.title,
-                                  item.content,
-                                  item.imagePath,
-                                  item.date,
-                                );
-                              }
-                            },
-                          ),
+                      return ListItem(
+                        item.id,
+                        item.title,
+                        item.content,
+                        item.imagePath,
+                        item.date,
+                      );
+                    }
+                  },
+                ),
               ),
               floatingActionButton: FloatingActionButton(
+
                 onPressed: () {
                   goToNoteEditScreen(context);
                 },
-                child: Icon(Icons.add),
+
+
+                child: Icon(Icons.add_box),
               ),
             );
           }
@@ -64,26 +67,30 @@ class NoteListScreen extends StatelessWidget {
 
   Widget header() {
     return GestureDetector(
-      onTap: _launchUrl,
       child: Container(
         decoration: BoxDecoration(
-          color: headerColor,
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(75.0),
-          ),
-        ),
-        height: 150.0,
+
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[
+                  Colors.red,
+                  Colors.blue,
+                  Colors.green
+                ]
+            )),
+        height: 80.0,
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'ANDROIDRIDE\'S',
-              style: headerRideStyle,
+              'Aplikasi Note',
+              style: headerNotesStyle,
             ),
             Text(
-              'Notes',
-              style: headerNotesStyle,
+              'Buku Catatan dan Foto',
+              style: headerRideStyle,
             )
           ],
         ),
@@ -91,14 +98,7 @@ class NoteListScreen extends StatelessWidget {
     );
   }
 
-  void _launchUrl() async {
-    const url = 'https://www.androidride.com';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+
 
   Widget noNotesUI(BuildContext context) {
     return ListView(
@@ -117,7 +117,7 @@ class NoteListScreen extends StatelessWidget {
             ),
             RichText(
               text: TextSpan(style: noNotesStyle, children: [
-                TextSpan(text: ' There is no note available\n Tap on "'),
+                TextSpan(text: ' Tidak ada Note\n Tap on "'),
                 TextSpan(
                     text: '+',
                     style: boldPlus,
@@ -125,7 +125,7 @@ class NoteListScreen extends StatelessWidget {
                       ..onTap = () {
                         goToNoteEditScreen(context);
                       }),
-                TextSpan(text: '" to add new note')
+                TextSpan(text: '" untuk tambah catatan')
               ]),
             ),
           ],

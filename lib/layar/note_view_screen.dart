@@ -21,7 +21,7 @@ class _NoteViewScreenState extends State<NoteViewScreen> {
 
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
+
     super.didChangeDependencies();
 
     final id = ModalRoute.of(context).settings.arguments;
@@ -42,7 +42,7 @@ class _NoteViewScreenState extends State<NoteViewScreen> {
         backgroundColor: white,
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back,
+            Icons.arrow_back_rounded,
             color: black,
           ),
           onPressed: () {
@@ -100,6 +100,7 @@ class _NoteViewScreenState extends State<NoteViewScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+
         onPressed: () {
           Navigator.pushNamed(context, NoteEditScreen.route,
               arguments: selectedNote.id);
@@ -116,4 +117,5 @@ class _NoteViewScreenState extends State<NoteViewScreen> {
           return DeletePopUp(selectedNote);
         });
   }
+
 }

@@ -33,7 +33,7 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
 
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
+
     super.didChangeDependencies();
 
     if (firstTime) {
@@ -104,6 +104,7 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
           ),
         ],
       ),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -116,7 +117,7 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
                 textCapitalization: TextCapitalization.sentences,
                 style: createTitle,
                 decoration: InputDecoration(
-                    hintText: 'Enter Note Title', border: InputBorder.none),
+                    hintText: 'Masukan Judul', border: InputBorder.none),
               ),
             ),
             if (_image != null)
@@ -171,7 +172,7 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
                 maxLines: null,
                 style: createContent,
                 decoration: InputDecoration(
-                  hintText: 'Enter Something...',
+                  hintText: 'Masukkan Deskripsi....',
                   border: InputBorder.none,
                 ),
               ),
@@ -182,7 +183,7 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           if (titleController.text.isEmpty)
-            titleController.text = 'Untitled Note';
+            titleController.text = 'Tidak ada judul';
 
           saveNote();
         },
@@ -230,6 +231,10 @@ class _NoteEditScreenState extends State<NoteEditScreen> {
           .pushReplacementNamed(NoteViewScreen.route, arguments: id);
     }
   }
+
+
+
+
 
   void _showDialog() {
     showDialog(

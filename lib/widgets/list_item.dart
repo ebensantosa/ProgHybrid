@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_notes/screens/note_view_screen.dart';
+import 'package:flutter_notes/layar/note_view_screen.dart';
 import 'package:flutter_notes/utils/constants.dart';
 
 class ListItem extends StatelessWidget {

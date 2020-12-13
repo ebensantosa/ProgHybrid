@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  splashscreen:
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -56,6 +58,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - crying_emoji.png
+     - logo_splash.png
+     - logo_primary.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
